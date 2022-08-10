@@ -13,11 +13,15 @@ export const HeaderContainer = styled.header`
     width: 100%;
     max-width: 67.5rem;
     margin: 0 auto;
-    padding: 0 1.25rem;
+    padding: 0 0;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 1120px) {
+      padding: 0 1.25rem;
+    }
 
     img {
       height: 2.5rem;
@@ -44,6 +48,8 @@ export const ButtonLocaltion = styled.button`
   border-radius: var(--default-border-radius);
   background: ${(props) => props.theme['--purple-light']};
   color: ${(props) => props.theme['--purple-dark']};
+
+  font-size: 0.875rem;
 
   padding: 0.5rem;
 

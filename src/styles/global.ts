@@ -4,6 +4,10 @@ export const GlobalStyles = createGlobalStyle`
 
   :root {
     --default-border-radius: 6px;
+
+    --font-size-xl: 3rem;
+    --font-size-l: 1.25rem;
+    --font-size-m: 1rem;
   }
 
   * {
@@ -21,11 +25,13 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
+    line-height: 130%;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Baloo 2', cursive;
     font-weight: bold;
+    line-height: 130%;
   }
 
   :focus {
