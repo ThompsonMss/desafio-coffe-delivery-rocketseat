@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
+
+  :root {
+    --default-border-radius: 6px;
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -9,7 +14,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html, body, #root {
-    height: 100vh;
     background: ${(props) => props.theme['--background']};
   }
 
