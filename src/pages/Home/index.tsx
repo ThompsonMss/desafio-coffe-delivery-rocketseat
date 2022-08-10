@@ -1,7 +1,13 @@
 import React from 'react'
+import { Banner, IntroContainer, WrapperInto } from './styles'
 
 export function Home() {
   return (
-    <h1>Home</h1>
+    <IntroContainer>
+      <Banner />
+      <WrapperInto>
+        <h1>Home</h1>
+      </WrapperInto>
+    </IntroContainer>
   )
 }

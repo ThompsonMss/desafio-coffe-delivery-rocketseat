@@ -59,10 +59,3 @@ export const ContainerLayout = styled.div`
   width: 100%;
   margin-top: 6.5rem;
 `
-
-export const Wrapper = styled.div`
-  width: 100%;
-  max-width: 67.5rem;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-`

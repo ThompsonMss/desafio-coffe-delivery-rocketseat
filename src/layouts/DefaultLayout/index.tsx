@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { Actions, ButtonLocaltion, ContainerLayout, HeaderContainer, Wrapper } from './styles'
+import { Actions, ButtonLocaltion, ContainerLayout, HeaderContainer } from './styles'
 
 import logotipo from '../../assets/images/logotipo.svg'
 import { MapPin } from 'phosphor-react'
@@ -25,9 +25,7 @@ export function DefaultLayout() {
       </HeaderContainer>
 
       <ContainerLayout>
-        <Wrapper>
           <Outlet />
-        </Wrapper>
       </ContainerLayout>
     </>
   )
