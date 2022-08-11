@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     --font-size-s: 0.875rem;
 
     --font-size-title-l: 2rem;
+    --font-size-title-m: 1.5rem;
     --font-size-title-s: 1.25rem;
   }
 

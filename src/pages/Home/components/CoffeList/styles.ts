@@ -35,6 +35,13 @@ export const Container = styled.div`
     text-align: center;
     margin-bottom: 2.0625rem;
   }
+
+  footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 `
 
 export const ContainerTypeOfCoffe = styled.div`
@@ -59,3 +66,26 @@ export const TypeOfCoffe = styled.div`
     line-height: 130%;
   }
 `
+
+export const Price = styled.h2`
+  font-size: var(--font-size-title-m);
+  color: ${(props) => props.theme['--base-text']};
+
+  &::before {
+    content: 'R$';
+    font-size: var(--font-size-s);
+    color: ${(props) => props.theme['--base-text']};
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    margin-right: .2rem;
+  }
+`
+
+export const ContainerAction = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: .5rem;
+`
+
