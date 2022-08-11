@@ -21,6 +21,12 @@ export const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
 
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     @media (max-width: 1120px) {
       padding: 0 1.25rem;
     }

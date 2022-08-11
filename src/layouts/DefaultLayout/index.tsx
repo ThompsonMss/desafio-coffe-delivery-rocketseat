@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import { Actions, ButtonLocaltion, ContainerLayout, HeaderContainer } from './styles'
 
 import logotipo from '../../assets/images/logotipo.svg'
@@ -11,7 +11,9 @@ export function DefaultLayout() {
     <>
       <HeaderContainer>
         <nav>
-          <img src={logotipo} alt="Logotipo Coffe Delivery" />
+          <Link to="/home">
+            <img src={logotipo} alt="Logotipo Coffe Delivery" />
+          </Link>
 
           <Actions>
             <ButtonLocaltion>
@@ -19,13 +21,15 @@ export function DefaultLayout() {
               Brasília, DF
             </ButtonLocaltion>
 
-            <ButtonCart />
+            <Link to="/checkout">
+              <ButtonCart />
+            </Link>
           </Actions>
         </nav>
       </HeaderContainer>
 
       <ContainerLayout>
-          <Outlet />
+        <Outlet />
       </ContainerLayout>
     </>
   )
