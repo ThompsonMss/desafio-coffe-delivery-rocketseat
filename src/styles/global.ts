@@ -8,6 +8,10 @@ export const GlobalStyles = createGlobalStyle`
     --font-size-xl: 3rem;
     --font-size-l: 1.25rem;
     --font-size-m: 1rem;
+    --font-size-s: 0.875rem;
+
+    --font-size-title-l: 2rem;
+    --font-size-title-s: 1.25rem;
   }
 
   * {

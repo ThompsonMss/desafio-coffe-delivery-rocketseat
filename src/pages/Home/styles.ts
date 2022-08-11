@@ -23,7 +23,7 @@ export const Banner = styled.div`
   left: 0;
   right: 0;
 
-  opacity: .7;
+  opacity: 1;
   width: 100%;
   height: 100%;
 `
@@ -112,5 +112,44 @@ export const Item = styled.div<ItemProps>`
   span {
     color: ${(props) => props.theme['--base-text']};
     font-size: var(--font-size-m);
+  }
+`
+export const CoffeList = styled.div`
+  width: 100%;
+  max-width: 67.5rem;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  @media (max-width: 1120px) {
+    padding: 2rem 1.25rem;
+  }
+`
+
+export const TitleSectionCoffeList = styled.h1`
+  font-size: var(--font-size-title-l);
+  color: ${(props) => props.theme['--base-subtitle']};
+`
+
+export const CoffeListContainer = styled.main`
+  margin-top: 3.375rem;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2.5rem 2rem;
+
+  justify-items: center;
+  align-items: center;
+
+  @media (max-width: 1120px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 880px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: 1fr;
   }
 `

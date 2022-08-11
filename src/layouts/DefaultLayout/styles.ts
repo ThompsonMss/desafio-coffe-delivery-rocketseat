@@ -8,6 +8,8 @@ export const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
 
+  z-index: 6;
+
   nav {
 
     width: 100%;
