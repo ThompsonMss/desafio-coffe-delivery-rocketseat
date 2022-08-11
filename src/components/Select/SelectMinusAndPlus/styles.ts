@@ -27,6 +27,11 @@ const BaseButton = styled.button`
   
   cursor: pointer;
 
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
   &:hover {
 
     svg {

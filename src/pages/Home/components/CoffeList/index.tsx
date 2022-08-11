@@ -12,6 +12,9 @@ interface CoffeListComponentProps {
 }
 
 export function CoffeListComponent({ coffe }: CoffeListComponentProps) {
+
+  const [amount, setAmount] = React.useState(1)
+
   return (
     <Container>
       <img src={coffe.image} alt={`Imagem de cáfe (${coffe.name})`} />
@@ -26,10 +29,10 @@ export function CoffeListComponent({ coffe }: CoffeListComponentProps) {
       <p>{coffe.desc}</p>
 
       <footer>
-        <Price>{coffe.value.toLocaleString('pt-br', {minimumFractionDigits: 2})}</Price>
+        <Price>{coffe.value.toLocaleString('pt-br', { minimumFractionDigits: 2 })}</Price>
 
         <ContainerAction>
-          <SelectMinusAndPlus />
+          <SelectMinusAndPlus amount={amount} setAmount={setAmount} />
           <ButtonOnlyIcon
             icon={ShoppingCartSimple}
             onClick={() => alert('asd')}

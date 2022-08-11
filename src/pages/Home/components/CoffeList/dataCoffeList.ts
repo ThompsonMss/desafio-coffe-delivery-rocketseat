@@ -25,7 +25,6 @@ export interface ICoffe {
   name: string;
   desc: string;
   value: number;
-  amount: number;
 }
 
 export const dataCoffes: ICoffe[] = [
@@ -35,8 +34,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }],
     name: 'Expresso Tradicional',
     desc: 'O tradicional café feito com água quente e grãos moídos',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 2,
@@ -44,8 +42,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }],
     name: 'Expresso Americano',
     desc: 'Expresso diluído, menos intenso que o tradicional',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 3,
@@ -53,8 +50,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }],
     name: 'Expresso Cremoso',
     desc: 'Café expresso tradicional com espuma cremosa',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 4,
@@ -62,8 +58,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }, { id: 2, name: 'Gelado' }],
     name: 'Expresso Gelado',
     desc: 'Bebida preparada com café expresso e cubos de gelo',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 5,
@@ -71,8 +66,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }, { id: 3, name: 'Com leite' }],
     name: 'Café com Leite',
     desc: 'Meio a meio de expresso tradicional com leite vaporizado',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 6,
@@ -80,8 +74,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }, { id: 3, name: 'Com leite' }],
     name: 'Latte',
     desc: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 7,
@@ -89,8 +82,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }, { id: 3, name: 'Com leite' }],
     name: 'Capuccino',
     desc: 'Bebida com canela feita de doses iguais de café, leite e espuma',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 8,
@@ -98,8 +90,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }, { id: 3, name: 'Com leite' }],
     name: 'Macchiato',
     desc: 'Café expresso misturado com um pouco de leite quente e espuma',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 9,
@@ -107,8 +98,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 1, name: 'Tradicional' }, { id: 3, name: 'Com leite' }],
     name: 'Mocaccino',
     desc: 'Café expresso com calda de chocolate, pouco leite e espuma',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 10,
@@ -116,8 +106,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 4, name: 'Especial' }, { id: 3, name: 'Com leite' }],
     name: 'Chocolate Quente',
     desc: 'Bebida feita com chocolate dissolvido no leite quente e café',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 11,
@@ -125,8 +114,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 4, name: 'Especial' }, { id: 5, name: 'Alcoólico' }, { id: 6, name: 'Gelado' }],
     name: 'Cubano',
     desc: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 12,
@@ -134,8 +122,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 4, name: 'Especial' }],
     name: 'Havaiano',
     desc: 'Bebida adocicada preparada com café e leite de coco',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 13,
@@ -143,8 +130,7 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 4, name: 'Especial' }],
     name: 'Árabe',
     desc: 'Bebida preparada com grãos de café árabe e especiarias',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   },
   {
     id: 14,
@@ -152,7 +138,6 @@ export const dataCoffes: ICoffe[] = [
     typeOfCoffe: [{ id: 4, name: 'Especial' }, { id: 5, name: 'Alcoólico' }],
     name: 'Irlandês',
     desc: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
-    value: 9.90,
-    amount: 1
+    value: 9.90
   }
 ]
