@@ -18,6 +18,43 @@ export const Container = styled.main`
     }
 `
 
+interface ItemProps {
+  colorIcon: '--yellow-dark' | '--purple';
+}
+
+export const LabelCompleteOrder = styled.div<ItemProps>`
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  margin-bottom: 2rem;
+
+  svg {
+    font-size: 1.375rem;
+    margin-right: 0.5rem;
+    color: ${(props) => props.theme[props.colorIcon]};
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  p {
+    color: ${(props) => props.theme['--base-subtitle']};
+    font-size: var(--font-size-m);
+  }
+
+  span {
+    color: ${(props) => props.theme['--base-text']};
+    font-size: var(--font-size-s);
+  }
+
+`
+
 export const CompleteOrder = styled.div`
 
   display: flex;
@@ -91,4 +128,27 @@ export const ContainerCart = styled.aside`
 export const Cart = styled(BaseCardCompleteOrder)`
   border-top-right-radius: 44px;
   border-bottom-left-radius: 44px;
+`
+
+export const ContainerForm = styled.div`
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 1rem;
+`
+
+export const Row = styled.div`
+
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 1rem;
 `
