@@ -150,5 +150,21 @@ export const Row = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
 
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
+
   gap: 1rem;
+`
+export const ItensTypeOfPayment = styled.div`
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  @media (max-width: 680px) {
+    flex-direction: column;
+  }
+
 `

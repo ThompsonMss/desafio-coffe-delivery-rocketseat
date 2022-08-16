@@ -1,7 +1,19 @@
-import { Input } from '@/components/Input'
-import { CurrencyDollar, MapPinLine } from 'phosphor-react'
 import React from 'react'
-import { Cart, CompleteOrder, Container, ContainerAddress, ContainerCart, ContainerForm, ContainerTypeOfPayment, LabelCompleteOrder, Row } from './styles'
+import { Input } from '@/components/Input'
+import { SelectButton } from '@/components/Select/SelectButton'
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from 'phosphor-react'
+import {
+  Cart,
+  CompleteOrder,
+  Container,
+  ContainerAddress,
+  ContainerCart,
+  ContainerForm,
+  ContainerTypeOfPayment,
+  ItensTypeOfPayment,
+  LabelCompleteOrder,
+  Row
+} from './styles'
 
 export function Checkout() {
   return (
@@ -21,11 +33,20 @@ export function Checkout() {
           </LabelCompleteOrder>
 
           <ContainerForm>
-            <Input />
-            <Input />
             <Row>
-              <Input />
-              <Input />
+              <Input placeholder='CEP' width="12.5" />
+            </Row>
+            <Row>
+              <Input placeholder='Rua' />
+            </Row>
+            <Row>
+              <Input placeholder='Número' width="12.5" />
+              <Input placeholder='Complemento' optional="true" />
+            </Row>
+            <Row>
+              <Input placeholder='Bairro' width="12.5" />
+              <Input placeholder='Cidade' />
+              <Input placeholder='UF' width='3.75' />
             </Row>
           </ContainerForm>
 
@@ -41,6 +62,21 @@ export function Checkout() {
               <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
             </div>
           </LabelCompleteOrder>
+
+          <ItensTypeOfPayment>
+            <SelectButton
+              icon={CreditCard}
+              labelButton="Cartão de crédito"
+            />
+            <SelectButton
+              icon={Bank}
+              labelButton="Cartão de débito"
+            />
+            <SelectButton
+              icon={Money}
+              labelButton="Dinheiro"
+            />
+          </ItensTypeOfPayment>
 
         </ContainerTypeOfPayment>
 
