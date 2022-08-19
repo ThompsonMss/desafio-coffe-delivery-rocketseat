@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+interface Props {
+  small?: boolean;
+}
+
+export const Container = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,10 +18,10 @@ export const Container = styled.div`
   }
 `
 
-const BaseButton = styled.button`
+const BaseButton = styled.button<Props>`
   border: none;
   width: 1.625rem;
-  height: 2.375rem;
+  height: ${(props) => props.small ? '2rem' : '2.375rem'};
 
   display: flex;
   align-items: center;

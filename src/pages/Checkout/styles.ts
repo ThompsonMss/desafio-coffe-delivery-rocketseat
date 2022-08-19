@@ -168,3 +168,91 @@ export const ItensTypeOfPayment = styled.div`
   }
 
 `
+
+export const CardCoffe = styled.div`
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 1.25rem;
+
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid ${(props) => props.theme['--base-button']};
+  margin-bottom: 1.5rem;
+
+  img {
+    height: 4rem;
+    width: 4rem;
+  }
+
+`
+
+export const ActionsCardCoffe = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 0.5rem;
+
+  > p{
+    font-size: var(--font-size-m);
+    color: ${(props) => props.theme['--base-subtitle']};
+  }
+
+  > div{ 
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    gap: 0.5rem;
+  }
+`
+
+export const PriceCardCoffe = styled.div`
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  width: 100%;
+
+  span {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: right;
+    width: 100%;
+  }
+`
+export const ContainerValues = styled.div`
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  gap: 0.75rem;
+
+  margin-bottom: 1.5rem;
+
+  div {
+
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    span {
+      font-size: var(--font-size-s);
+      color: ${(props) => props.theme['--base-text']};
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: ${(props) => props.theme['--base-subtitle']};
+      font-weight: bold;
+    }
+  }
+`
