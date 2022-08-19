@@ -6,6 +6,7 @@ import { SelectMinusAndPlus } from '@/components/Select/SelectMinusAndPlus'
 import { ShoppingCartSimple } from 'phosphor-react'
 
 import { ICoffe } from './dataCoffeList'
+import { Context } from '@/context/Main'
 
 interface CoffeListComponentProps {
   coffe: ICoffe
@@ -13,7 +14,13 @@ interface CoffeListComponentProps {
 
 export function CoffeListComponent({ coffe }: CoffeListComponentProps) {
 
+  const { addCoffeCart } = React.useContext(Context)
   const [amount, setAmount] = React.useState(1)
+
+  function handleAddCoffeCart() {
+    addCoffeCart({ id: coffe.id, amout: amount })
+    setAmount(1)
+  }
 
   return (
     <Container>
@@ -35,7 +42,7 @@ export function CoffeListComponent({ coffe }: CoffeListComponentProps) {
           <SelectMinusAndPlus amount={amount} setAmount={setAmount} />
           <ButtonOnlyIcon
             icon={ShoppingCartSimple}
-            onClick={() => alert('asd')}
+            onClick={handleAddCoffeCart}
           />
         </ContainerAction>
       </footer>
