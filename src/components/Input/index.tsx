@@ -6,11 +6,13 @@ interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   width?: string;
 }
 
-export function Input(props: InputProps) {
+function ComponentInput(props: InputProps, ref: React.Ref<any>) {
   return (
     <ContainerInput width={props.width ?? 'none'} optional={props.optional}>
-      <input {...props} />
+      <input ref={ref} {...props} />
       {props.optional && <span>Opcional</span>}
     </ContainerInput>
   )
 }
+
+export const Input = React.forwardRef(ComponentInput)

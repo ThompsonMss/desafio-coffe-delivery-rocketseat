@@ -12,7 +12,7 @@ interface CoffeInCart extends ICoffe {
   amount: number;
 }
 
-export function CartCheckout() {
+export function CartCheckout({ onFinishOrder }: { onFinishOrder: () => void }) {
 
   const { cart, removeCoffeCart, alterAmountInCart } = React.useContext(Context)
 
@@ -79,7 +79,7 @@ export function CartCheckout() {
               </div>
             </ContainerValues>
 
-            <ButtonDefault labelButton='Confirmar Pedido' />
+            <ButtonDefault onClick={onFinishOrder} labelButton='Confirmar Pedido' />
           </>
         )}
 

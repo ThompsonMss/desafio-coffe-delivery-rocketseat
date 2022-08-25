@@ -8,6 +8,7 @@ type IconPhosphor = typeof BaseIcon;
 interface SelectButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   icon: IconPhosphor;
   labelButton: string;
+  activeButton: boolean;
 }
 
 export function SelectButton({ icon: Icon, labelButton, ...props }: SelectButtonProps) {

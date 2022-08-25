@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const ContainerButton = styled.button`
+export const ContainerButton = styled.button<{ activeButton: boolean }>`
 
   display: flex;
   align-items: center;
@@ -23,10 +23,18 @@ export const ContainerButton = styled.button`
   }
 
   &:focus {
-    outline: 0;
     background: ${(props) => props.theme['--purple-light']};
     box-shadow: 0 0 0 2px ${(props) => props.theme['--purple']};
   }
+
+  ${(props) => {
+    if (props.activeButton) {
+
+      return css`background: ${props.theme['--purple-light']};
+                 box-shadow: 0 0 0 2px ${props.theme['--purple']};
+                `
+    }
+  }}
 
   svg {
     font-size: 1rem;

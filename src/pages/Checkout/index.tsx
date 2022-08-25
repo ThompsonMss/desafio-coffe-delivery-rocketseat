@@ -14,10 +14,34 @@ import {
 } from './styles'
 import { Context } from '@/context/Main'
 import { CartCheckout } from './CartCheckout'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
+type Inputs = {
+  cep: string;
+  rua: string;
+  numero: string;
+  complemento: string;
+  bairro: string;
+  cidade: string;
+  uf: string;
+};
+
+enum TypesOfPayment {
+  CREDIT,
+  DEBIT,
+  MONEY
+}
 
 export function Checkout() {
 
   const { cart } = React.useContext(Context)
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
+
+  const [typeOfPayment, setTypeOfPayment] = React.useState<TypesOfPayment | null>(null)
+
+  function finishingOrder(data: Inputs) {
+    console.log(data)
+  }
 
   return (
     <Container>
@@ -37,19 +61,19 @@ export function Checkout() {
 
           <ContainerForm>
             <Row>
-              <Input placeholder='CEP' width="12.5" />
+              <Input placeholder='CEP' width="12.5" {...register('cep', { required: true })} />
             </Row>
             <Row>
-              <Input placeholder='Rua' />
+              <Input placeholder='Rua' {...register('rua', { required: true })} />
             </Row>
             <Row>
-              <Input placeholder='Número' width="12.5" />
-              <Input placeholder='Complemento' optional="true" />
+              <Input placeholder='Número' width="12.5" {...register('numero', { required: true })} />
+              <Input placeholder='Complemento' optional="true" {...register('complemento')} />
             </Row>
             <Row>
-              <Input placeholder='Bairro' width="12.5" />
-              <Input placeholder='Cidade' />
-              <Input placeholder='UF' width='3.75' />
+              <Input placeholder='Bairro' width="12.5" {...register('bairro', { required: true })} />
+              <Input placeholder='Cidade' {...register('cidade', { required: true })} />
+              <Input placeholder='UF' width='3.75' {...register('uf', { required: true, maxLength: 2 })} />
             </Row>
           </ContainerForm>
 
@@ -70,14 +94,20 @@ export function Checkout() {
             <SelectButton
               icon={CreditCard}
               labelButton="Cartão de crédito"
+              activeButton={typeOfPayment === TypesOfPayment.CREDIT}
+              onClick={() => setTypeOfPayment(TypesOfPayment.CREDIT)}
             />
             <SelectButton
               icon={Bank}
               labelButton="Cartão de débito"
+              activeButton={typeOfPayment === TypesOfPayment.DEBIT}
+              onClick={() => setTypeOfPayment(TypesOfPayment.DEBIT)}
             />
             <SelectButton
               icon={Money}
               labelButton="Dinheiro"
+              activeButton={typeOfPayment === TypesOfPayment.MONEY}
+              onClick={() => setTypeOfPayment(TypesOfPayment.MONEY)}
             />
           </ItensTypeOfPayment>
 
@@ -85,7 +115,7 @@ export function Checkout() {
 
       </CompleteOrder>
 
-      <CartCheckout />
+      <CartCheckout onFinishOrder={handleSubmit(finishingOrder)} />
     </Container>
   )
 }
