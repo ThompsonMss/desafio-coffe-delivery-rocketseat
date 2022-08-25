@@ -7,7 +7,9 @@ import { produce } from 'immer'
 enum Types {
   ADD_ITEM_IN_CART = 'ADD_ITEM_IN_CART',
   REMOVE_ITEM_IN_CART = 'REMOVE_ITEM_IN_CART',
-  ALTER_AMOUNT_ITEM_IN_CART = 'ALTER_AMOUNT_ITEM_IN_CART'
+  ALTER_AMOUNT_ITEM_IN_CART = 'ALTER_AMOUNT_ITEM_IN_CART',
+  CLEAR_CART = 'CLEAR_CART',
+  NEW_ORDER = 'NEW_ORDER'
 }
 
 /**
@@ -71,6 +73,23 @@ export function mainReducer(state: MainState, action: { type: Types, payload?: a
         return draft
       })
 
+    case Types.CLEAR_CART:
+      return produce(state, draft => {
+        draft.cart = []
+        return draft
+      })
+
+    case Types.NEW_ORDER:
+      return produce(state, draft => {
+
+        draft.order = {
+          address: action.payload.address,
+          typeOfPayment: action.payload.payment
+        }
+        
+        return draft
+      })
+
     default:
       return state
   }
@@ -103,6 +122,22 @@ export function alterAmountItemInCart(idCoffe: number, newValue: number) {
     payload: {
       idCoffe: idCoffe,
       newValue: newValue
+    }
+  }
+}
+
+export function clearCart() {
+  return {
+    type: Types.CLEAR_CART
+  }
+}
+
+export function newOrder(address: string, payment: string) {
+  return {
+    type: Types.NEW_ORDER,
+    payload: {
+      address,
+      payment
     }
   }
 }

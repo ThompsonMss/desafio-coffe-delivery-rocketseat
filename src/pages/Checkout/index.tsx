@@ -14,7 +14,11 @@ import {
 } from './styles'
 import { Context } from '@/context/Main'
 import { CartCheckout } from './CartCheckout'
-import { SubmitHandler, useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+
+import { useNavigate } from 'react-router-dom'
+
+import toast from 'react-hot-toast'
 
 type Inputs = {
   cep: string;
@@ -27,20 +31,32 @@ type Inputs = {
 };
 
 enum TypesOfPayment {
-  CREDIT,
-  DEBIT,
-  MONEY
+  CREDIT = 'Cartão de crédito',
+  DEBIT = 'Cartão de débito',
+  MONEY = 'Dinheiro'
 }
 
 export function Checkout() {
 
-  const { cart } = React.useContext(Context)
+  const navigate = useNavigate()
+
+  const { cart, clearCartItens, newOrderOfCoffe } = React.useContext(Context)
   const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
 
   const [typeOfPayment, setTypeOfPayment] = React.useState<TypesOfPayment | null>(null)
 
   function finishingOrder(data: Inputs) {
-    console.log(data)
+
+    if (typeOfPayment === null)
+      return toast.error('Ops! Escolha uma forma de pagamento.')
+
+    newOrderOfCoffe(
+      `${data.rua}, ${data.numero} #--# ${data.bairro} - ${data.cidade}, ${data.uf.toUpperCase()}`,
+      typeOfPayment
+    )
+
+    clearCartItens()
+    navigate('/success')
   }
 
   return (

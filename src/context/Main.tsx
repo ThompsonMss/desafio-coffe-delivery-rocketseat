@@ -1,5 +1,5 @@
 import React from 'react'
-import { addItemInCart, alterAmountItemInCart, mainReducer, removeItemInCart } from '@/reducers/main/reducer'
+import { addItemInCart, alterAmountItemInCart, clearCart, mainReducer, newOrder, removeItemInCart } from '@/reducers/main/reducer'
 
 interface IMainContext {
   cart: Array<{ idCoffe: number; theAmount: number; }>
@@ -7,6 +7,8 @@ interface IMainContext {
   addCoffeCart: (data: { id: number, amout: number }) => void;
   removeCoffeCart: (id: number) => void;
   alterAmountInCart: (idCoffe: number, newValue: number) => void;
+  newOrderOfCoffe: (address: string, payment: string) => void;
+  clearCartItens: () => void;
 }
 
 export const Context = React.createContext({} as IMainContext)
@@ -32,8 +34,16 @@ export function MainContext({ children }: { children: React.ReactNode }) {
     dispatch(alterAmountItemInCart(idCoffe, newValue))
   }
 
+  function clearCartItens() {
+    dispatch(clearCart())
+  }
+
+  function newOrderOfCoffe(address: string, payment: string) {
+    dispatch(newOrder(address, payment))
+  }
+
   return (
-    <Context.Provider value={{ cart, order, addCoffeCart, removeCoffeCart, alterAmountInCart }}>
+    <Context.Provider value={{ cart, order, addCoffeCart, removeCoffeCart, alterAmountInCart, clearCartItens, newOrderOfCoffe }}>
       {children}
     </Context.Provider>
   )
