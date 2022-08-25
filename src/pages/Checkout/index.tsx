@@ -1,30 +1,24 @@
 import React from 'react'
 import { Input } from '@/components/Input'
 import { SelectButton } from '@/components/Select/SelectButton'
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money, Trash } from 'phosphor-react'
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from 'phosphor-react'
 import {
-  ActionsCardCoffe,
-  CardCoffe,
-  Cart,
   CompleteOrder,
   Container,
   ContainerAddress,
-  ContainerCart,
   ContainerForm,
   ContainerTypeOfPayment,
-  ContainerValues,
   ItensTypeOfPayment,
   LabelCompleteOrder,
-  PriceCardCoffe,
   Row
 } from './styles'
-import { SelectMinusAndPlus } from '@/components/Select/SelectMinusAndPlus'
-import { ButtonWithIcon } from '@/components/Button/ButtonWithIcon'
-
-import Americano from '@/assets/images/americano.svg'
-import { ButtonDefault } from '@/components/Button/ButtonDefault'
+import { Context } from '@/context/Main'
+import { CartCheckout } from './CartCheckout'
 
 export function Checkout() {
+
+  const { cart } = React.useContext(Context)
+
   return (
     <Container>
       <CompleteOrder>
@@ -91,56 +85,7 @@ export function Checkout() {
 
       </CompleteOrder>
 
-      <ContainerCart>
-        <h3>Cafés selecionados</h3>
-
-        <Cart>
-          <CardCoffe>
-            <img src={Americano} />
-            <ActionsCardCoffe>
-              <p>Expresso Tradicional</p>
-              <div>
-                <SelectMinusAndPlus small={true} amount={10} setAmount={() => null} />
-                <ButtonWithIcon small={true} icon={Trash} labelButton="Remover" />
-              </div>
-            </ActionsCardCoffe>
-
-            <PriceCardCoffe><span>R$ 9,90</span></PriceCardCoffe>
-          </CardCoffe>
-
-          <CardCoffe>
-            <img src={Americano} />
-            <ActionsCardCoffe>
-              <p>Expresso Tradicional</p>
-              <div>
-                <SelectMinusAndPlus small={true} amount={10} setAmount={() => null} />
-                <ButtonWithIcon small={true} icon={Trash} labelButton="Remover" />
-              </div>
-            </ActionsCardCoffe>
-
-            <PriceCardCoffe>
-              <span>R$ 9,90</span>
-            </PriceCardCoffe>
-          </CardCoffe>
-
-          <ContainerValues>
-            <div>
-              <span>Total de itens</span>
-              <span>R$ 29,70</span>
-            </div>
-            <div>
-              <span>Entrega</span>
-              <span>R$ 29,70</span>
-            </div>
-            <div>
-              <p>Total</p>
-              <p>R$ 29,70</p>
-            </div>
-          </ContainerValues>
-
-          <ButtonDefault labelButton='Confirmar Pedido' />
-        </Cart>
-      </ContainerCart>
+      <CartCheckout />
     </Container>
   )
 }

@@ -5,24 +5,41 @@ import { Minus, Plus } from 'phosphor-react'
 
 interface SelectMinusAndPlusProps {
   amount: number;
-  setAmount: React.Dispatch<React.SetStateAction<number>>
-  small?:boolean;
+  setAmount?: React.Dispatch<React.SetStateAction<number>>
+  small?: boolean;
+  onMinus?: (value: number) => void;
+  onPlus?: (value: number) => void;
 }
 
-export function SelectMinusAndPlus({ amount = 1, setAmount = () => null, small = false }: SelectMinusAndPlusProps) {
+export function SelectMinusAndPlus({
+  amount = 1,
+  setAmount = () => null,
+  small = false,
+  onMinus = undefined,
+  onPlus = undefined
+}: SelectMinusAndPlusProps) {
 
   function handleMinus() {
     if (amount <= 1)
       return
 
-    setAmount(state => state - 1)
+    if (onMinus !== undefined) {
+      onMinus(amount - 1)
+    } else {
+      setAmount(state => state - 1)
+    }
+
   }
 
   function handlePlus() {
     if (amount >= 99)
       return
 
-    setAmount(state => state + 1)
+    if (onPlus !== undefined) {
+      onPlus(amount + 1)
+    } else {
+      setAmount(state => state + 1)
+    }
   }
 
   return (

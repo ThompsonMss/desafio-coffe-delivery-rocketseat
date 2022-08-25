@@ -6,7 +6,8 @@ import { produce } from 'immer'
 
 enum Types {
   ADD_ITEM_IN_CART = 'ADD_ITEM_IN_CART',
-  REMOVE_ITEM_IN_CART = 'REMOVE_ITEM_IN_CART'
+  REMOVE_ITEM_IN_CART = 'REMOVE_ITEM_IN_CART',
+  ALTER_AMOUNT_ITEM_IN_CART = 'ALTER_AMOUNT_ITEM_IN_CART'
 }
 
 /**
@@ -44,13 +45,27 @@ export function mainReducer(state: MainState, action: { type: Types, payload?: a
 
         return draft
       })
+
     case Types.REMOVE_ITEM_IN_CART:
       return produce(state, draft => {
         // Verificando se existe produto no carrinho.
         const existItemIndex = draft.cart.findIndex(item => item.idCoffe === action.payload.id)
 
-        if (existItemIndex) {
+        if (existItemIndex > -1) {
           draft.cart.splice(existItemIndex, 1)
+        }
+
+        return draft
+      })
+
+    case Types.ALTER_AMOUNT_ITEM_IN_CART:
+      return produce(state, draft => {
+
+        // Verificando se existe produto no carrinho.
+        const existIten = draft.cart.findIndex(item => item.idCoffe === action.payload.idCoffe)
+
+        if (existIten > -1) {
+          draft.cart[existIten].theAmount = action.payload.newValue
         }
 
         return draft
@@ -78,6 +93,16 @@ export function removeItemInCart(id: number) {
     type: Types.REMOVE_ITEM_IN_CART,
     payload: {
       id: id
+    }
+  }
+}
+
+export function alterAmountItemInCart(idCoffe: number, newValue: number) {
+  return {
+    type: Types.ALTER_AMOUNT_ITEM_IN_CART,
+    payload: {
+      idCoffe: idCoffe,
+      newValue: newValue
     }
   }
 }
